@@ -41,6 +41,12 @@ export const setupAPI = async ({ RestAPI, restLink }) => {
         link: [...restLink],
     });
 
+    RestAPI.route(/*  */ "POST /auth/check-jwt-ok", {
+        handler: /**/ "src/rest/auth/check-jwt-ok.handler",
+        link: [...restLink],
+    });
+
+    //
     //
 
     //
