@@ -21,10 +21,10 @@ export const setupAPI = async ({ RestAPI, restLink }) => {
         link: [...restLink],
     });
 
-    RestAPI.route(/*  */ "POST /auth/register-user-passkey", {
-        handler: /**/ "src/rest/auth/register-user-passkey.handler",
-        link: [...restLink],
-    });
+    // RestAPI.route(/*  */ "POST /auth/register-user-passkey", {
+    //     handler: /**/ "src/rest/auth/register-user-passkey.handler",
+    //     link: [...restLink],
+    // });
 
     RestAPI.route(/*  */ "POST /auth/add-passkey-to-account", {
         handler: /**/ "src/rest/auth/add-passkey-to-account.handler",
