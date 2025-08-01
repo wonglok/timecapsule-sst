@@ -21,12 +21,17 @@ export async function handler(event: any) {
         secretKey: Resource.SESSION_SECRET.value,
     })
         .then((r) => {
+            console.log(r);
             return {
+                userID: r.userID,
+                email: r.email,
                 ok: true,
             };
         })
         .catch((e) => {
             return {
+                userID: "",
+                email: "",
                 ok: false,
             };
         });
@@ -37,6 +42,8 @@ export async function handler(event: any) {
         };
     } else {
         return {
+            userID: resp.userID,
+            email: resp.email,
             ok: true,
         };
     }
