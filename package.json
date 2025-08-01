@@ -1,0 +1,35 @@
+{
+    "scripts": {
+        "dev": "npm run unlock; npm run sst",
+        "unlock": "npx sst unlock --stage development",
+        "sst": "npx sst dev --stage development",
+        "sst:load:all": "npm run sst:load:dev; npm run sst:load:preview; npm run sst:load:production;",
+        "sst:load:dev": "npx sst secret load .env.local --stage development",
+        "sst:load:preview": "npx sst secret load .env.local --stage preview",
+        "sst:load:production": "npx sst secret load .env.local --stage production",
+        "sst:deploy:preview": "npx sst deploy --stage preview",
+        "sst:deploy:production": "npx sst deploy --stage production",
+        "sst:remove:prod:forever": "",
+        "sst:remove:preview:forever": "npx sst remove --stage preview",
+        "sst:remove:dev": "npx sst dev --stage development"
+    },
+    "dependencies": {
+        "@aws-sdk/client-apigatewaymanagementapi": "^3.857.0",
+        "@aws-sdk/client-dynamodb": "^3.857.0",
+        "@aws-sdk/client-s3": "^3.743.0",
+        "@aws-sdk/s3-request-presigner": "^3.743.0",
+        "@aws-sdk/util-dynamodb": "^3.857.0",
+        "@passwordless-id/webauthn": "^2.1.2",
+        "@types/jsonwebtoken": "^9.0.10",
+        "aws-lambda": "^1.0.7",
+        "base64url": "^3.0.1",
+        "form-data": "^4.0.1",
+        "jose": "^5.9.6",
+        "jsonwebtoken": "^9.0.2",
+        "mailgun.js": "^11.1.0",
+        "randomatic": "^3.1.1",
+        "secure-pin": "^1.0.14",
+        "sst": "^3.17.10",
+        "uuid": "^11.0.5"
+    }
+}
