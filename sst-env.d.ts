@@ -38,6 +38,14 @@ declare module "sst" {
       "type": "sst.aws.ApiGatewayWebSocket"
       "url": string
     }
+    "TreasureMapTable": {
+      "name": string
+      "type": "sst.aws.Dynamo"
+    }
+    "TreasureObjectTable": {
+      "name": string
+      "type": "sst.aws.Dynamo"
+    }
     "UserTable": {
       "name": string
       "type": "sst.aws.Dynamo"

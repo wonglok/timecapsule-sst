@@ -63,6 +63,26 @@ export default $config({
             primaryIndex: { hashKey: "itemID" },
         });
 
+        const TreasureMapTable = new sst.aws.Dynamo("TreasureMapTable", {
+            fields: {
+                itemID: "string",
+            },
+            primaryIndex: { hashKey: "itemID" },
+        });
+
+        const TreasureObjectTable = new sst.aws.Dynamo("TreasureObjectTable", {
+            fields: {
+                itemID: "string",
+            },
+            primaryIndex: { hashKey: "itemID" },
+        });
+
+        const gameLink = [
+            //
+            TreasureMapTable,
+            TreasureObjectTable,
+        ];
+
         const restLink = [
             PasskeyCredentialTable,
             GlobalTable,
