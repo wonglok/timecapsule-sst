@@ -42,7 +42,7 @@ export async function handler(event) {
         });
 
     if (!user) {
-        return {
+        throw {
             ok: false,
         };
     }
