@@ -1877,6 +1877,13 @@ kind-of@^6.0.0:
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-6.0.3.tgz#07c05034a6c349fa06e24fa35aa76db4580ce4dd"
   integrity sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==
 
+lambda-rate-limiter@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/lambda-rate-limiter/-/lambda-rate-limiter-4.0.2.tgz#39bfefece6d7a9e461d357cfdb460c850bc3f458"
+  integrity sha512-2/a40Oe2IjzQ+jbTZvDZLJMiL6cG6pHnYftm/XRzXizDiaX2QEPl/qkrm7o+xvnLELNYtFsqHOe21McBzOPBZw==
+  dependencies:
+    lru-cache-ext "5.0.1"
+
 lodash.includes@^4.3.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/lodash.includes/-/lodash.includes-4.3.0.tgz#60bb98a87cb923c68ca1e51325483314849f553f"
@@ -1911,6 +1918,18 @@ lodash.once@^4.0.0:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/lodash.once/-/lodash.once-4.1.1.tgz#0dd3971213c7c56df880977d504c88fb471a97ac"
   integrity sha512-Sb487aTOCr9drQVL8pIxOzVhafOjZN9UU54hiN8PU3uAiSV7lx1yYNpbNmex2PK6dSJoNTSJUUswT651yww3Mg==
+
+lru-cache-ext@5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/lru-cache-ext/-/lru-cache-ext-5.0.1.tgz#501e327ba2ca6dddd42688e1ed8112b44c7beef7"
+  integrity sha512-Y+0s/AGnkJSCpJYHDRoByirI5CmuSc8O3nqhHOb7d27plwibYwp6Wj4qlDvpFK/mVRNdvtBu27igUVbKKBfULQ==
+  dependencies:
+    lru-cache "11.0.2"
+
+lru-cache@11.0.2:
+  version "11.0.2"
+  resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-11.0.2.tgz#fbd8e7cf8211f5e7e5d91905c415a3f55755ca39"
+  integrity sha512-123qHRfJBmo2jXDbo/a5YOQrJoHF/GNQTLzQ5+IdK5pWpceK17yRc6ozlWd25FxvGKQbIUs91fDFkXmDHTKcyA==
 
 lru-cache@^6.0.0:
   version "6.0.0"
