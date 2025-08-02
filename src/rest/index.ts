@@ -45,6 +45,12 @@ export const setupAPI = async ({ RestAPI, restLink, gameLink }) => {
         link: [...restLink],
     });
 
+    RestAPI.route(/*  */ "POST /auth/request-email", {
+        handler: /**/ "src/rest/auth/request-email.handler",
+        link: [...restLink],
+    });
+
+    //
     // treasure
     // treasure
     // treasure
