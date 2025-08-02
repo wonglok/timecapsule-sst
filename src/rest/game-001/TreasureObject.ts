@@ -14,9 +14,9 @@ import { marshall } from "@aws-sdk/util-dynamodb";
 import { unmarshall } from "@aws-sdk/util-dynamodb";
 
 const dynamoDB = new DynamoDBClient();
-const DatabaseCollection = Resource.TreasureMapTable.name;
+const DatabaseCollection = Resource.TreasureObjectTable.name;
 
-export const TreasureMapDBOps = {
+export const TreasureObjectTable = {
     put: async ({ item }: { item: { itemID: string } | any }) => {
         await dynamoDB.send(
             new PutItemCommand({
@@ -59,39 +59,23 @@ export const TreasureMapDBOps = {
     },
     //
 
-    listByJobPostID: async ({ jobPostID }: { jobPostID: string }) => {
-        return await dynamoDB
-            .send(
-                new ScanCommand({
-                    TableName: DatabaseCollection,
-                    FilterExpression: `jobPostID = :jobPostID`,
-                    ExpressionAttributeValues: {
-                        ":jobPostID": { S: `${jobPostID}` },
-                    },
-                })
-            )
-            .then((r) => {
-                return (r.Items || [])?.map((r) => unmarshall(r)) || [];
-            });
-    },
-
-    listByWorkerUserIDTelegram: async ({
-        workerUserIDTelegram,
-        workStatus = "accepted",
+    listByFilter: async ({
+        var001 = "yo",
+        var002 = "yo",
     }: {
-        workStatus: string;
-        workerUserIDTelegram: string;
+        var002: string;
+        var001: string;
     }) => {
         return await dynamoDB
             .send(
                 new ScanCommand({
                     TableName: DatabaseCollection,
-                    FilterExpression: `workerUserIDTelegram = :workerUserIDTelegram AND workStatus = :workStatus`,
+                    FilterExpression: `var001 = :var001 AND var002 = :var002`,
                     ExpressionAttributeValues: {
-                        ":workerUserIDTelegram": {
-                            S: `${workerUserIDTelegram}`,
+                        ":var001": {
+                            S: `${var001}`,
                         },
-                        ":workStatus": { S: `${workStatus}` },
+                        ":var002": { S: `${var002}` },
                     },
                 })
             )
@@ -101,18 +85,14 @@ export const TreasureMapDBOps = {
     },
 
     //
-    listByBossUserIDTelegram: async ({
-        bossUserIDTelegram,
-    }: {
-        bossUserIDTelegram: string;
-    }) => {
+    list: async ({ var001 }: { var001: string }) => {
         return await dynamoDB
             .send(
                 new ScanCommand({
                     TableName: DatabaseCollection,
-                    FilterExpression: `bossUserIDTelegram = :bossUserIDTelegram`,
+                    FilterExpression: `var001 = :var001`,
                     ExpressionAttributeValues: {
-                        ":bossUserIDTelegram": { S: `${bossUserIDTelegram}` },
+                        ":var001": { S: `${var001}` },
                     },
                 })
             )
@@ -120,20 +100,20 @@ export const TreasureMapDBOps = {
                 return (r.Items || [])?.map((r) => unmarshall(r)) || [];
             });
     },
-
-    // listByBossID: async ({ bossID }: { bossID: string }) => {
-    //     return await dynamoDB
-    //         .send(
-    //             new ScanCommand({
-    //                 TableName: DatabaseCollection,
-    //                 FilterExpression: `bossID = :bossID`,
-    //                 ExpressionAttributeValues: {
-    //                     ':bossID': { S: `${bossID}` },
-    //                 },
-    //             }),
-    //         )
-    //         .then((r) => {
-    //             return (r.Items || [])?.map((r) => unmarshall(r)) || []
-    //         })
-    // },
+    //
+    listAllInMap: async ({ mapID }: { mapID: string }) => {
+        return await dynamoDB
+            .send(
+                new ScanCommand({
+                    TableName: DatabaseCollection,
+                    FilterExpression: `mapID = :mapID`,
+                    ExpressionAttributeValues: {
+                        ":mapID": { S: `${mapID}` },
+                    },
+                })
+            )
+            .then((r) => {
+                return (r.Items || [])?.map((r) => unmarshall(r)) || [];
+            });
+    },
 };

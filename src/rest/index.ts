@@ -1,4 +1,4 @@
-export const setupAPI = async ({ RestAPI, restLink }) => {
+export const setupAPI = async ({ RestAPI, restLink, gameLink }) => {
     RestAPI.route("GET /", {
         handler: "src/rest/hello.handler",
         link: [...restLink],
@@ -45,13 +45,25 @@ export const setupAPI = async ({ RestAPI, restLink }) => {
         link: [...restLink],
     });
 
-    //
-    //
-    // treasure map
-    // treasure map
-    // treasure map
-    // treasure map
-    // treasure map
+    // treasure
+    // treasure
+    // treasure
+    // treasure
+    // treasure
+
+    RestAPI.route(/*  */ "POST /game-001/treasure-object-put-new", {
+        handler: /**/ "src/rest/game-001/treasure-object-put-new.handler",
+        link: [...restLink, ...gameLink],
+    });
+
+    RestAPI.route(/*  */ "POST /game-001/treasure-object-get", {
+        handler: /**/ "src/rest/game-001/treasure-object-get.handler",
+        link: [...restLink, ...gameLink],
+    });
+    RestAPI.route(/*  */ "POST /game-001/treasure-object-remove", {
+        handler: /**/ "src/rest/game-001/treasure-object-remove.handler",
+        link: [...restLink, ...gameLink],
+    });
 
     //
     //

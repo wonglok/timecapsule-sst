@@ -136,7 +136,7 @@ export default $config({
         /////////////////
         /////////////////
         let { setupAPI } = await import("./src/rest/index");
-        await setupAPI({ RestAPI, restLink });
+        await setupAPI({ RestAPI, restLink, gameLink });
 
         //
     },
